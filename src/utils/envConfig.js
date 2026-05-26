@@ -78,7 +78,11 @@ export function resetEnvOverrides() {
 }
 
 export function getApiBaseUrl() {
-  const { apiUrl } = getEnvConfig()
+  const { apiUrl, isDev } = getEnvConfig()
+  // Local dev: use Vite proxy (/api → VITE_API_URL) to avoid CORS and route mismatches
+  if (isDev && import.meta.env.VITE_DEV_USE_PROXY === 'true') {
+    return '/api'
+  }
   return `${apiUrl}/api`
 }
 

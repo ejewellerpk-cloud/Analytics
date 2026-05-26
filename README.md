@@ -49,6 +49,27 @@ All routes require Sanctum login + `x-api-key` on auth; intelligence routes use 
 
 **Deploy:** After updating `shopperzz`, run on server: `php artisan route:clear`
 
+## Enterprise intelligence (new)
+
+See [`docs/ENTERPRISE_INTELLIGENCE.md`](docs/ENTERPRISE_INTELLIGENCE.md) for full architecture.
+
+| Route | Status |
+|-------|--------|
+| `/heatmaps` | Working (click/scroll aggregation) |
+| `/ai-insights` | Working (rule engine + cron) |
+| `/session-replay` | Sessions list (player Phase 2) |
+| `/marketing/recovery`, `/customers/journey`, etc. | Schema + API stubs (UI Phase 4+) |
+
+Backend: `POST /api/analytics/v1/collect/behavior` + `GET /api/admin/intelligence/enterprise/*`
+
+Storefront: `public/analytics/intelligence-tracker.js`
+
+```bash
+php artisan migrate
+php artisan analytics:generate-insights
+php artisan queue:work --queue=analytics
+```
+
 ## Pages (all live data)
 
 | Route | Data source |

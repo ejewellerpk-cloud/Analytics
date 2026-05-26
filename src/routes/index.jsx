@@ -17,6 +17,16 @@ const ReportsPage = lazy(() => import('@/pages/ReportsPage').then((m) => ({ defa
 const IntegrationsPage = lazy(() => import('@/pages/IntegrationsPage').then((m) => ({ default: m.IntegrationsPage })))
 const RolesPage = lazy(() => import('@/pages/RolesPage').then((m) => ({ default: m.RolesPage })))
 const AdvancedAnalyticsPage = lazy(() => import('@/pages/AdvancedAnalyticsPage').then((m) => ({ default: m.AdvancedAnalyticsPage })))
+const HeatmapsPage = lazy(() => import('@/pages/enterprise/HeatmapsPage').then((m) => ({ default: m.HeatmapsPage })))
+const SessionReplayPage = lazy(() => import('@/pages/enterprise/SessionReplayPage').then((m) => ({ default: m.SessionReplayPage })))
+const AiInsightsPage = lazy(() => import('@/pages/enterprise/AiInsightsPage').then((m) => ({ default: m.AiInsightsPage })))
+const CartRecoveryPage = lazy(() => import('@/pages/enterprise/EnterprisePlaceholderPage').then((m) => ({ default: m.EnterprisePlaceholderPage })))
+const CustomerJourneyPage = lazy(() => import('@/pages/enterprise/EnterprisePlaceholderPage').then((m) => ({ default: m.EnterprisePlaceholderPage })))
+const SegmentsPage = lazy(() => import('@/pages/enterprise/EnterprisePlaceholderPage').then((m) => ({ default: m.EnterprisePlaceholderPage })))
+const ExperimentsPage = lazy(() => import('@/pages/enterprise/EnterprisePlaceholderPage').then((m) => ({ default: m.EnterprisePlaceholderPage })))
+const AttributionPage = lazy(() => import('@/pages/enterprise/EnterprisePlaceholderPage').then((m) => ({ default: m.EnterprisePlaceholderPage })))
+const AlertsPage = lazy(() => import('@/pages/enterprise/EnterprisePlaceholderPage').then((m) => ({ default: m.EnterprisePlaceholderPage })))
+const BillingPage = lazy(() => import('@/pages/enterprise/EnterprisePlaceholderPage').then((m) => ({ default: m.EnterprisePlaceholderPage })))
 const SettingsLayout = lazy(() => import('@/layouts/SettingsLayout').then((m) => ({ default: m.SettingsLayout })))
 const EnvironmentSettingsPage = lazy(() => import('@/pages/settings/EnvironmentSettingsPage').then((m) => ({ default: m.EnvironmentSettingsPage })))
 const ProfileSettingsPage = lazy(() => import('@/pages/settings/ProfileSettingsPage').then((m) => ({ default: m.ProfileSettingsPage })))
@@ -81,6 +91,16 @@ export const router = createBrowserRouter([
       { path: 'funnels', element: <Guard><FunnelsPage /></Guard> },
       { path: 'reports', element: <Guard><ReportsPage /></Guard> },
       { path: 'advanced', element: <Guard><AdvancedAnalyticsPage /></Guard> },
+      { path: 'heatmaps', element: <Guard><HeatmapsPage /></Guard> },
+      { path: 'session-replay', element: <Guard><SessionReplayPage /></Guard> },
+      { path: 'ai-insights', element: <Guard><AiInsightsPage /></Guard> },
+      { path: 'marketing/recovery', element: <Guard><CartRecoveryPage title="Cart Recovery" description="Abandoned checkout automation" phase="4" /></Guard> },
+      { path: 'customers/journey', element: <Guard><CustomerJourneyPage title="Customer Journey" description="Unified visitor → customer timeline" phase="4" /></Guard> },
+      { path: 'customers/segments', element: <Guard><SegmentsPage title="Segments & LTV" description="RFM, VIP, at-risk segments" phase="5" /></Guard> },
+      { path: 'optimization/experiments', element: <Guard><ExperimentsPage title="Experiments" description="A/B tests & conversion lift" phase="7" /></Guard> },
+      { path: 'marketing/attribution', element: <Guard><AttributionPage title="Attribution & ROAS" description="Multi-touch revenue attribution" phase="8" /></Guard> },
+      { path: 'settings/alerts', element: <Guard><AlertsPage title="Smart Alerts" description="Threshold rules & notifications" phase="9" /></Guard> },
+      { path: 'admin/billing', element: <Guard><BillingPage title="Billing" description="SaaS plans & white-label" phase="10" /></Guard> },
       { path: 'integrations', element: <Guard><IntegrationsPage /></Guard> },
       { path: 'roles', element: <Guard><RolesPage /></Guard> },
       {
